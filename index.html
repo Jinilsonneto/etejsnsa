@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teoria do Multiverso - Explorando Realidades Infinitas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+            overflow-x: hidden;
+        }
+
+        /* Animação de partículas de fundo */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: transparent;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 2px solid rgba(138, 43, 226, 0.3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #8a2be2;
+            text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            color: #8a2be2;
+            background: rgba(138, 43, 226, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 8rem 2rem;
+            background: linear-gradient(45deg, rgba(138, 43, 226, 0.1), rgba(75, 0, 130, 0.1));
+            border-radius: 20px;
+            margin: 2rem auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #8a2be2, #ff69b4, #00ced1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 5px rgba(138, 43, 226, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(138, 43, 226, 0.8)); }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #8a2be2, #4b0082);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(138, 43, 226, 0.6);
+            background: linear-gradient(45deg, #9932cc, #6a0dad);
+        }
+
+        /* Cards */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(138, 43, 226, 0.1), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(138, 43, 226, 0.3);
+            border-color: rgba(138, 43, 226, 0.6);
+        }
+
+        .card h3 {
+            color: #8a2be2;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        /* Universe Examples */
+        .universe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .universe-card {
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(75, 0, 130, 0.1));
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid rgba(138, 43, 226, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .universe-card::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.2) 0%, transparent 70%);
+            transition: all 0.3s ease;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+
+        .universe-card:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .universe-card:hover {
+            transform: scale(1.05);
+            border-color: rgba(138, 43, 226, 0.8);
+        }
+
+        .universe-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .universe-card h4 {
+            color: #ff69b4;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .universe-card p {
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #8a2be2, #00ced1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(45deg, #8a2be2, #00ced1);
+            border-radius: 2px;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 2px solid rgba(138, 43, 226, 0.3);
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #8a2be2;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ff69b4;
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .card-container,
+            .universe-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Partículas de fundo -->
+    <div class="particles" id="particles"></div>
+
+    <header>
+        <nav>
+            <div class="logo">🌌 Multiverso</div>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#teoria">Teoria</a></li>
+                <li><a href="#tipos">Tipos</a></li>
+                <li><a href="#universos">Universos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Teoria do Multiverso</h1>
+                <p>Explore as infinitas possibilidades de realidades paralelas e universos alternativos que podem existir além do nosso cosmos conhecido.</p>
+                <a href="#teoria" class="cta-button">Descobrir Mais</a>
+            </div>
+        </section>
+
+        <section id="teoria" class="fade-in">
+            <h2 class="section-title">O Que é o Multiverso?</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>🔬 Definição Científica</h3>
+                    <p>O multiverso é uma hipótese científica que sugere a existência de múltiplos universos, incluindo o universo que habitamos. Estes universos coletivamente compreendem tudo o que existe: o espaço, tempo, matéria, energia e as leis físicas que os descrevem.</p>
+                </div>
+                <div class="card">
+                    <h3>⚛️ Base Teórica</h3>
+                    <p>A teoria surge de várias áreas da física moderna, incluindo a mecânica quântica, teoria das cordas e cosmologia inflacionária. Cada uma dessas teorias sugere mecanismos pelos quais múltiplos universos poderiam existir simultaneamente.</p>
+                </div>
+                <div class="card">
+                    <h3>🌍 Implicações</h3>
+                    <p>Se verdadeira, a teoria do multiverso revolucionaria nossa compreensão da realidade, sugerindo que existem versões infinitas de nós mesmos vivendo vidas ligeiramente diferentes em universos paralelos.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tipos" class="fade-in">
+            <h2 class="section-title">Classificação de Max Tegmark</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>📊 Nível I - Regiões Hubble</h3>
+                    <p>Universos além do nosso horizonte observável com as mesmas leis físicas, mas diferentes condições iniciais. Estatisticamente, existiriam duplicatas exatas de você em algum lugar distante.</p>
+                </div>
+                <div class="card">
+                    <h3>🎲 Nível II - Inflação Caótica</h3>
+                    <p>Universos com diferentes constantes físicas e dimensionalidades, criados pela inflação eterna. Cada "bolha" pode ter leis da física completamente diferentes.</p>
+                </div>
+                <div class="card">
+                    <h3>⚡ Nível III - Interpretação de Muitos Mundos</h3>
+                    <p>Baseado na mecânica quântica, cada medição quântica divide o universo em múltiplas realidades paralelas, onde todos os resultados possíveis ocorrem simultaneamente.</p>
+                </div>
+                <div class="card">
+                    <h3>🧮 Nível IV - Estruturas Matemáticas</h3>
+                    <p>Todos os universos matematicamente possíveis existem como realidades físicas. Nossa realidade é apenas uma das infinitas estruturas matemáticas auto-consistentes.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="universos" class="fade-in">
+            <h2 class="section-title">Como Poderiam Ser Esses Universos?</h2>
+            <div class="universe-grid">
+                <div class="universe-card">
+                    <span class="universe-icon">🔄</span>
+                    <h4>Universo Espelhado</h4>
+                    <p>Um universo onde tudo acontece de forma invertida - as pessoas nascem velhas e ficam jovens, o tempo flui para trás, e os efeitos precedem as causas.</p>
+                </div>
+                <div class="universe-card">
+                    <span class="universe-icon">🌈</span>
+                    <h4>Universo das Cores Impossíveis</h4>
+                    <p>Um reino onde existem cores que nossos olhos não podem perceber, criando paisagens e experiências visuais completamente além da nossa imaginação.</p>
+                </div>
+                <div class="universe-card">
+                    <span class="universe-icon">📐</span>
+                    <h4>Universo 2D</h4>
+                    <p>Um cosmos plano onde seres bidimensionais vivem em um mundo sem altura, experimentando física e geometria completamente diferentes das nossas.</p>
+                </div>
+                <div class="universe-card">
+                    <span class="universe-icon">🌊</span>
+                    <h4>Universo Líquido</h4>
+                    <p>Um mundo onde toda matéria existe em estado fluido, com civilizações aquáticas navegando por oceanos cósmicos em planetas completamente submersos.</p>
+                </div>
+                <div class="universe-card">
+                    <span class="universe-icon">⚡</span>
+                    <h4>Universo de Energia Pura</h4>
+                    <p>Uma realidade onde a consciência existe como padrões de energia pura, sem necessidade de corpos físicos, comunicando-se através de frequências eletromagnéticas.</p>
+                </div>
+                <div class="universe-card">
+                    <span class="universe-icon">🔢</span>
+                    <h4>Universo Matemático</h4>
+                    <p>Um cosmos onde números e equações ganham vida, e seres matemáticos resolvem problemas existenciais através de cálculos que moldam a realidade ao seu redor.</p>
+                </div>
+                <div class="universe-card">
+                    <span class="universe-icon">🌀</span>
+                    <h4>Universo Fractal</h4>
+                    <p>Uma realidade infinitamente recursiva onde cada escala revela padrões similares, e civilizações existem em múltiplas dimensões fractais simultâneas.</p>
+                </div>
+                <div class="universe-card">
+                    <span class="universe-icon">🎭</span>
+                    <h4>Universo das Emoções</h4>
+                    <p>Um mundo onde sentimentos são forças físicas tangíveis, moldando a geografia e o clima, com montanhas de alegria e vales de melancolia.</p>
+                </div>
+                <div class="universe-card">
+                    <span class="universe-icon">🔮</span>
+                    <h4>Universo Probabilístico</h4>
+                    <p>Uma realidade onde múltiplas versões de eventos coexistem simultaneamente até serem observadas, criando um estado constante de superposição quântica.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="fade-in">
+            <h2 class="section-title">Evidências e Teorias Suportivas</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>🌌 Radiação Cósmica de Fundo</h3>
+                    <p>Anomalias na radiação cósmica de fundo em microondas podem indicar colisões com outros universos em bolhas, deixando "cicatrizes" detectáveis em nosso cosmos observável.</p>
+                </div>
+                <div class="card">
+                    <h3>🔬 Experimentos Quânticos</h3>
+                    <p>O experimento da dupla fenda e outros fenômenos quânticos sugerem que partículas existem em múltiplos estados simultaneamente, apoiando a interpretação de muitos mundos.</p>
+                </div>
+                <div class="card">
+                    <h3>🎯 Ajuste Fino das Constantes</h3>
+                    <p>O fato de que as constantes físicas do nosso universo parecem perfeitamente ajustadas para permitir a vida pode ser explicado pela existência de infinitos universos com parâmetros diferentes.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contato">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#home">Início</a>
+                <a href="#teoria">Teoria</a>
+                <a href="#tipos">Classificação</a>
+                <a href="#universos">Universos Possíveis</a>
+            </div>
+            <p>&copy; 2025 Teoria do Multiverso. Explorando infinitas possibilidades através da ciência.</p>
+            <p><em>"Em algum lugar, em outro universo, existe uma versão de você lendo exatamente este texto."</em></p>
+        </div>
+    </footer>
+
+    <script>
+        // Criar partículas animadas
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Animação de fade-in ao scroll
+        function handleScrollAnimation() {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Scroll suave para links internos
+        function smoothScroll() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Efeito parallax suave no hero
+        function parallaxEffect() {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.hero');
+                if (hero) {
+                    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                }
+            });
+        }
+
+        // Inicializar todas as funcionalidades
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            smoothScroll();
+            parallaxEffect();
+            handleScrollAnimation();
+            
+            // Adicionar listener para scroll
+            window.addEventListener('scroll', handleScrollAnimation);
+            
+            // Trigger inicial para elementos já visíveis
+            handleScrollAnimation();
+        });
+
+        // Efeito de hover nas cards com movimento 3D
+        document.addEventListener('mousemove', function(e) {
+            const cards = document.querySelectorAll('.card, .universe-card');
+            
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
